@@ -4,7 +4,39 @@
     <title>Your Website Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript">
+
+      function iosCopyToClipboard() {
+
+          const textarea = document.createElement('textarea');
+          textarea.setAttribute('readonly', true);
+          textarea.setAttribute('contenteditable', true);
+          textarea.style.position = 'fixed'; // prevent scroll from jumping to the bottom when focus is set.
+          textarea.value = "https://staging.infinitcare.co/content/anxiety-is-on-the-rise-techniques-to-help-you-calm-your-mind";
+
+          document.body.appendChild(textarea);
+          var el = textarea
+          var oldContentEditable = el.contentEditable,
+              oldReadOnly = el.readOnly,
+              range = document.createRange();
+
+          el.contentEditable = true;
+          el.readOnly = false;
+          range.selectNodeContents(el);
+
+          var s = window.getSelection();
+          s.removeAllRanges();
+          s.addRange(range);
+
+          el.setSelectionRange(0, 999999); // A big number, to cover anything that could be inside the element.
+
+          el.contentEditable = oldContentEditable;
+          el.readOnly = oldReadOnly;
+
+          console.log(document.execCommand('copy'))
+      }
+
         window.onload = function() {
+                   iosCopyToClipboard()
             var isAndroid = /android/i.test(navigator.userAgent);
             var isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
             if (isAndroid) {
@@ -15,6 +47,18 @@
                 window.location.href = 'https://apps.apple.com/app/youtube-watch-listen-stream/id544007664';
             }
         }
+
+        // window.onload = function() {
+        //     var isAndroid = /android/i.test(navigator.userAgent);
+        //     var isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        //     if (isAndroid) {
+        //         // Redirect to the Play Store
+        //         window.location.href = 'https://play.google.com/store/apps/details?id=ventures.iolabs.infinitcare&referrer=utm_source%3Dcompany%26utm_medium%3Demail%26utm_content%3Dverify';
+        //     } else if (isiOS) {
+        //         // Redirect to the App Store
+        //         window.location.href = 'https://apps.apple.com/app/youtube-watch-listen-stream/id544007664';
+        //     }
+        // }
     </script>
 </head>
 <body>
