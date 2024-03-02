@@ -5,47 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript">
 
+    function myFunction() {
+      // Get the text field
+      var copyText = document.getElementById("myInput");
+      // Select the text field
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); // For mobile devices
+
+      // Copy the text inside the text field
+      navigator.clipboard.writeText(copyText.value);
+
+      // Alert the copied text
+      alert("Copied the text: " + copyText.value);
+
+      // document.body.removeChild(copyText);
+      // document.body.removeChild(document.getElementById("copy"));
+    }
+
       function iosCopyToClipboard() {
+        let copyme = document.getElementById("copy");
+        copyme.click()
+        // let textarea;
+        // try{
+        //   textarea = document.createElement('textarea');
+        //   textarea.setAttribute('readonly', true);
+        //   textarea.setAttribute('contenteditable', true);
+ 
+        //   textarea.style.position = 'fixed'; // prevent scroll from jumping to the bottom when focus is set.
+        //   textarea.value = "https://staging.infinitcare.co/content/anxiety-is-on-the-rise-techniques-to-help-you-calm-your-mind";
 
-          const textarea = document.createElement('textarea');
-          textarea.setAttribute('readonly', true);
-          textarea.setAttribute('contenteditable', true);
-          textarea.style.position = 'fixed'; // prevent scroll from jumping to the bottom when focus is set.
-          textarea.value = "https://staging.infinitcare.co/content/anxiety-is-on-the-rise-techniques-to-help-you-calm-your-mind";
+        //   document.body.appendChild(textarea);
+        //   var el = textarea
+        //   var oldContentEditable = el.contentEditable,
+        //       oldReadOnly = el.readOnly,
+        //       range = document.createRange();
 
-          document.body.appendChild(textarea);
-          var el = textarea
-          var oldContentEditable = el.contentEditable,
-              oldReadOnly = el.readOnly,
-              range = document.createRange();
+        //   el.contentEditable = true;
+        //   el.readOnly = false;
+        //   range.selectNodeContents(el);
 
-          el.contentEditable = true;
-          el.readOnly = false;
-          range.selectNodeContents(el);
+        //   var s = window.getSelection();
+        //   s.removeAllRanges();
+        //   s.addRange(range);
 
-          var s = window.getSelection();
-          s.removeAllRanges();
-          s.addRange(range);
+        //   el.setSelectionRange(0, 999999); // A big number, to cover anything that could be inside the element.
 
-          el.setSelectionRange(0, 999999); // A big number, to cover anything that could be inside the element.
+        //   el.contentEditable = oldContentEditable;
+        //   el.readOnly = oldReadOnly;
 
-          el.contentEditable = oldContentEditable;
-          el.readOnly = oldReadOnly;
+        //   console.log(document.execCommand('copy'))
 
-          console.log(document.execCommand('copy'))
+        // } catch (err) {
+        //   console.error(err);
+        //   result = null;
+        // } finally {
+        //   document.body.removeChild(textarea);
+        // }
+
+
       }
 
         window.onload = function() {
                    iosCopyToClipboard()
-            var isAndroid = /android/i.test(navigator.userAgent);
-            var isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-            if (isAndroid) {
-                // Redirect to the Play Store
-                window.location.href = 'https://play.google.com/store/apps/details?id=ventures.iolabs.infinitcare&referrer=utm_source%3Dcompany%26utm_medium%3Demail%26utm_content%3Dverify';
-            } else if (isiOS) {
-                // Redirect to the App Store
-                window.location.href = 'https://apps.apple.com/app/youtube-watch-listen-stream/id544007664';
-            }
+            // var isAndroid = /android/i.test(navigator.userAgent);
+            // var isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            // if (isAndroid) {
+            //     // Redirect to the Play Store
+            //     window.location.href = 'https://play.google.com/store/apps/details?id=ventures.iolabs.infinitcare&referrer=utm_source%3Dcompany%26utm_medium%3Demail%26utm_content%3Dverify';
+            // } else if (isiOS) {
+            //     // Redirect to the App Store
+            //     window.location.href = 'https://apps.apple.com/app/youtube-watch-listen-stream/id544007664';
+            // }
         }
 
         // window.onload = function() {
@@ -64,5 +94,10 @@
 <body>
     <h1>AppLink Test</h1>
     <p>This is an example of a website that redirects users to the YouTube app's page on the App Store or Play Store, depending on their device. </p>
+    <!-- The text field -->
+    <input type="text" value="https://staging.infinitcare.co/content/anxiety-is-on-the-rise-techniques-to-help-you-calm-your-mind" id="myInput">
+
+    <!-- The button used to copy the text -->
+    <button id="copy" onclick="myFunction()">Copy text</button>
 </body>
 </html>
