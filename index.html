@@ -66,7 +66,7 @@
       }
 
         window.onload = function() {
-                   iosCopyToClipboard()
+                   
             // var isAndroid = /android/i.test(navigator.userAgent);
             // var isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
             // if (isAndroid) {
@@ -78,17 +78,17 @@
             // }
         }
 
-        // window.onload = function() {
-        //     var isAndroid = /android/i.test(navigator.userAgent);
-        //     var isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-        //     if (isAndroid) {
-        //         // Redirect to the Play Store
-        //         window.location.href = 'https://play.google.com/store/apps/details?id=ventures.iolabs.infinitcare&referrer=utm_source%3Dcompany%26utm_medium%3Demail%26utm_content%3Dverify';
-        //     } else if (isiOS) {
-        //         // Redirect to the App Store
-        //         window.location.href = 'https://apps.apple.com/app/youtube-watch-listen-stream/id544007664';
-        //     }
-        // }
+        window.onload = function() {
+            var isAndroid = /android/i.test(navigator.userAgent);
+            var isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            if (isAndroid) {
+                // Redirect to the Play Store
+                window.location.href = 'https://play.google.com/store/apps/details?id=ventures.iolabs.infinitcare&referrer=utm_source%3Dcompany%26utm_medium%3Demail%26utm_content%3Dverify';
+            } else if (isiOS) {
+                // Redirect to the App Store
+               iosCopyToClipboard()
+            }
+        }
     </script>
 </head>
 <body>
